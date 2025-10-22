@@ -6,28 +6,39 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+// CORS with your actual Netlify frontend URL
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://eclectic-pegasus-4e1cf2.netlify.app", // YOUR ACTUAL FRONTEND URL
+    ],
+    credentials: true,
+  })
+);
 
-// MongoDB Connection
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/form-approval")
-  .then(() => console.log("✅ MongoDB Connected Successfully"))
-  .catch((err) => console.log("❌ MongoDB Error:", err.message));
+app.use(express.json());
 
 // Routes
 app.use("/api/forms", require("./routes/forms"));
 
-// Test route
+// Basic test route
 app.get("/", (req, res) => {
   res.json({
     message: "Form Approval System API is running!",
-    database:
-      mongoose.connection.readyState === 1 ? "Connected" : "Disconnected",
+    frontend: "Connected to Netlify",
+    environment: process.env.NODE_ENV || "production",
   });
 });
 
+// MongoDB Connection
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("✅ MongoDB Connected Successfully"))
+  .catch((err) => {
+    console.log("❌ MongoDB Connection Failed:", err.message);
+  });
+
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
