@@ -1,0 +1,104 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --success-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+}
+
+body {
+  background-color: #f8f9fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  margin-bottom: 20px;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card-header {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+.status-pending {
+  color: var(--warning-color);
+  font-weight: bold;
+}
+
+.status-approved {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.status-rejected {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+.section {
+  display: block;
+}
+
+.section.d-none {
+  display: none !important;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.badge {
+  font-size: 0.8rem;
+}
+
+.form-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+  border: none;
+  border-radius: 8px;
+}
+
+/* Status badges */
+.badge-pending {
+  background-color: var(--warning-color);
+}
+
+.badge-approved {
+  background-color: var(--success-color);
+}
+
+.badge-rejected {
+  background-color: var(--danger-color);
+}
