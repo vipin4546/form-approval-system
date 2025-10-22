@@ -167,7 +167,10 @@
     </div>
 
     <script>
-      const API_BASE = "http://localhost:5000/api";
+      // Original: const API_BASE = "http://localhost:5000/api";
+      // Update to this:
+      const API_BASE = "https://form-approval-system.onrender.com/api";
+      // OR: const API_BASE = "/api";  // If deployed on the same domain/service (advanced)
 
       // Tab Switching
       function switchTab(tab) {
